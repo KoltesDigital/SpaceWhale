@@ -79,7 +79,7 @@
 			float d = dot(coro, n),
 				tc = -dot(coro, nr) / dot(cd, nr),
 				tr = dot(coro, nc) / dot(rd, nc);
-			acc += lerp(_RayColor1, _RayColor2, rr.z) * (_RayIntensity / d / d * step(0, tc) * smoothstep(_RayLength, 0, abs(tr - lerp(_FarDistanceFront, _FarDistanceBack, fr))) * min(fr * 1., 1.));
+			acc += lerp(_RayColor1, _RayColor2, rr.z) * (min(_RayIntensity / d / d, 2.) * step(0, tc) * smoothstep(_RayLength, 0, abs(tr - lerp(_FarDistanceFront, _FarDistanceBack, fr))) * min(fr * 1., 1.));
 		}
 
 		return fixed4(acc, 1.);

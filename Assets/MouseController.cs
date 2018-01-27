@@ -13,7 +13,7 @@ public class MouseController : MonoBehaviour
 
 	private float Normalize(float xy, float wh)
 	{
-		return (xy - wh * .5f) / (wh * .5f);
+		return Mathf.Clamp((xy - wh * .5f) / (wh * .5f), -1f, 1f);
 	}
 
 	void Update()
