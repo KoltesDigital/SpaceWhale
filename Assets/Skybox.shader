@@ -17,6 +17,7 @@
 		CGINCLUDE
 
 #include "UnityCG.cginc"
+#include "Noise.hlsl"
 
 		struct appdata
 	{
@@ -60,11 +61,25 @@
 		return o;
 	}
 
+	float3 applyHue(float3 color, float angle)
+	{
+		float3 k = float3(0.57735, 0.57735, 0.57735);
+		float cosAngle = cos(angle);
+		//Rodrigues' rotation formula
+		return color * cosAngle + cross(k, color) * sin(angle) + k * dot(k, color) * (1 - cosAngle);
+	}
+
 	fixed4 frag(v2f i) : COLOR
 	{
-		half3 cd = normalize(i.texcoord);
+		float3 uv = normalize(i.texcoord),
+			st = uv;
+		st.xz = mul(rot(sin(st.y + _Time.y + atan2(st.z, st.x) * 10.) * .02), st.xz);
+		st.yx = mul(rot(sin(st.x + _Time.y + atan2(st.x, st.y) * 10.) * .02), st.yx);
+		float3 acc = texCUBE(_Background, st).rgb;
 
-		float3 acc = texCUBE(_Background, i.texcoord).rgb * .5;
+		acc = applyHue(acc, sin(_Time.z + cnoise(uv * 2.) * 6.2835) * .2) * .7;
+
+		half3 cd = normalize(i.texcoord);
 		for (float f = 0; f < STARS; ++f) {
 			float r = rand(f) * STARS + _Time.y * _SpeedFactor,
 				fr = frac(r),

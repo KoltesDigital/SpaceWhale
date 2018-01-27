@@ -330,6 +330,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 13700000, guid: 549dce59854d93249adb83c830e6bccb, type: 3}
+      propertyPath: m_Materials.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 549dce59854d93249adb83c830e6bccb, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0
@@ -370,6 +374,22 @@ Prefab:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 2c3105a38eaee9148986e229d82410a2, type: 2}
+    - target: {fileID: 13700000, guid: 549dce59854d93249adb83c830e6bccb, type: 3}
+      propertyPath: m_Materials.Array.data[3]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 13700000, guid: 549dce59854d93249adb83c830e6bccb, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 253137b72985a034cb18935f7ed83edb, type: 2}
+    - target: {fileID: 13700000, guid: 549dce59854d93249adb83c830e6bccb, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 253137b72985a034cb18935f7ed83edb, type: 2}
+    - target: {fileID: 13700000, guid: 549dce59854d93249adb83c830e6bccb, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: 253137b72985a034cb18935f7ed83edb, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 549dce59854d93249adb83c830e6bccb, type: 3}
   m_IsPrefabParent: 0
@@ -1146,8 +1166,8 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 3
-      scalar: 6
-      minScalar: 5
+      scalar: 2
+      minScalar: 1
       maxCurve:
         serializedVersion: 2
         m_Curve:
