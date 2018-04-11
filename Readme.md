@@ -2,9 +2,9 @@
 
 Contemplative stuff.
 
-GGJ 2018
+​Made in a few hours during the GGJ2018.
 
-## Credits
+## Assets
 
 * [Noise by keijiro](https://github.com/keijiro/NoiseShader)
 * [Skybox Volume 2 by Hedgehog Team](https://www.assetstore.unity3d.com/en/#!/content/3392)
